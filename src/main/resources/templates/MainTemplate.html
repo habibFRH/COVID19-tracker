@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID-Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    <h1>hello world !</h1>
-    <h2>[[${test1}]]</h2>
-    <h2 th:text="${test1}"></h2>
+    <nav class="teal">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Corona Tracker</a>
+        </div>
+    </nav>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Place</th>
+                <th>Confirmed</th>
+                <th>Active</th>
+                <th>Recovered</th>
+            </tr>
+            <tr th:each="corona : ${coronaData}" >
+                <td th:text="${corona.combinedkey}"></td>
+                <td th:text="${corona.confirmed}"></td>
+                <td th:text="${corona.active}"></td>
+                <td th:text="${corona.recovered}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
